@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday My Love 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #ffe6cc);
+      color: #333;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff4081;
+    }
+
+    .btn {
+      background-color: #ff4081;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e91e63;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    img {
+      max-width: 250px;
+      border-radius: 50%;
+      margin-top: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Happy Birthday, My Love! 💖</h1>
+  <img src="your-gf-photo.jpg" alt="Her Photo"/>
+
+  <br />
+  <button class="btn" onclick="showMessage()">Click to Open Your Surprise</button>
+
+  <div class="message hidden" id="birthdayMessage">
+    <p>
+      Hey my jaan 💕,<br><br>
+      On this special day, I just want to say...  
+      You are the light of my life, the smile in my morning,  
+      and the peace in my night.  
+      Every moment with you is magical ✨.<br><br>
+      Happy Birthday once again! I love you more than words can say. 💘
+    </p>
+    <br />
+    <p>💝 Forever yours,<br><strong>Aaditya</strong></p>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById('birthdayMessage').classList.remove('hidden');
+      confetti(); // trigger confetti 🎉
+    }
+
+    // Simple Confetti JS
+    function confetti() {
+      const duration = 2 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+        confettiLib(Object.assign({}, defaults, {
+          particleCount,
+          origin: {
+            x: randomInRange(0.1, 0.9),
+            y: Math.random() - 0.2
+          }
+        }));
+      }, 250);
+    }
+
+    // Load confetti library
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js";
+    script.onload = () => console.log("Confetti loaded!");
+    document.head.appendChild(script);
+  </script>
+
+</body>
+</html>
+your-gf-photo.jpg
